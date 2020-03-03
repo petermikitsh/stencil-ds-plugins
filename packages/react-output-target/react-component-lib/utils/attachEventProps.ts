@@ -15,7 +15,7 @@ export function attachEventProps(node: HTMLElement, newProps: any, oldProps: any
       if (!isCoveredByReact(eventNameLc)) {
         syncEvent(node, eventNameLc, newProps[name]);
       }
-    } else {
+    } else if (name.indexOf('data-') !== 0 && name.indexOf('aria-') !== 0) {
       (node as any)[name] = newProps[name];
     }
   });
